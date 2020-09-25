@@ -1,0 +1,51 @@
+from tkinter import *
+
+root = Tk()
+root.title("Task Destroyer 9001")
+root.geometry("720x300")
+
+# Define Fuctions
+def addItem():
+    #PUT LOGIC FOR ADDING ITEM FROM 'taskEntry' TO MASTER TASK LIST
+    print("item added")
+
+def deleteItem():
+    #PUT LOGIC FOR DELETING SELECTED TASK FROM MASTER TASK LIST
+    print("item deleted")
+
+def deleteAll():
+    #PUT LOGIC FOR DELETING THE LIST
+    print("list cleared")
+
+# Create Frames
+leftFrame = Frame(root, width=350, height=300, bg="cyan")
+rightFrame = Frame(root, width=350, height=300, bg="lavender")
+root.grid_columnconfigure(0, weight=1)
+root.grid_rowconfigure(1, weight=1)
+
+# Create Label Widgets
+enterTaskLabel = Label(leftFrame, text="Enter New Task")
+
+# Create Entry Widgets
+taskEntry = Entry(leftFrame)
+
+# Create Button Widgets
+addItemButton = Button(leftFrame, text="ADD>>", command=addItem)
+deleteItemButton = Button(leftFrame, text="Delete", command=deleteItem)
+deleteAllButton = Button(leftFrame, text="Delete All", command=deleteAll)
+exitAppButton = Button(leftFrame, text="Quit", command=root.destroy) 
+
+# Create ListBox Widget
+taskBox = Listbox(rightFrame, height=10)
+
+# Put Widgets on screen
+enterTaskLabel.grid(row=2, column=1, sticky=W)
+taskEntry.grid(row=3, column=1)
+addItemButton.grid(row=3, column=2)
+deleteItemButton.grid(row=4, column=1)
+deleteAllButton.grid(row=4, column=2)
+exitAppButton.grid(row=5, column=1)
+taskBox.grid(row=2, column=3)
+
+
+root.mainloop()
